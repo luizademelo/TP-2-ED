@@ -1,0 +1,1 @@
+./bin/tp2 -i|-I nome_arquivo -m|-M -s|-S tam_max_particao
