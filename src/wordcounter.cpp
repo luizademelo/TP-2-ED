@@ -129,15 +129,15 @@ void ordenaTexto()
     Ordena(0, tamanho_texto - 1);
 }
 
-void Selecao()
+void Selecao(int Esq, int Dir)
 {
-    int i, j, Min;
-    for (i = 0; i < tamanho_texto; i++)
+    int i = Esq, j, Min;
+    for (; i < Dir; i++)
     {
         Min = i;
-        for (j = i + 1; j < tamanho_texto; j++)
+        for (j = i + 1; j < Dir; j++)
         {
-            if (texto[j].posicaoOrdem < texto[Min].posicaoOrdem)
+            if (texto[j] < texto[Min])
                 Min = j;
         }
         Palavra aux = texto[i];
@@ -166,7 +166,6 @@ void Particao(int Esq, int Dir, int *i, int *j)
         x = texto[mediana];
     else
         x = texto[(*i + *j) / 2];
-    printf("cheguei particao\n");
     do
     {
         while (x > texto[*i])
@@ -184,25 +183,6 @@ void Particao(int Esq, int Dir, int *i, int *j)
     } while (*i <= *j);
 }
 
-void definePosicaoTexto()
-{
-    for (int i = 0; i < tamanho_texto; i++)
-    {
-        definePosicaoNaOrdem(&texto[i]);
-    }
-}
-
-void definePosicaoNaOrdem(Palavra *p)
-{
-    for (int i = 0; i < 26; i++)
-    {
-        if (p->palavra[0] == ordem[i])
-        {
-            p->posicaoOrdem = i;
-            return;
-        }
-    }
-}
 
 void escreveSaida(char *nome_arquivo)
 {

@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     char *arquivo_entrada;
     char *arquivo_saida;
 
-    while ((opt = getopt(argc, argv, "i:I:o:O:")) != -1)
+    while ((opt = getopt(argc, argv, "i:I:o:O:s:S:m:M:")) != -1)
     {
         switch (opt)
         {
@@ -32,7 +32,6 @@ int main(int argc, char **argv)
         }
     }
     leEntrada(arquivo_entrada);
-    definePosicaoTexto();
     defineTamanhoPalavra(); 
     ordenaTexto();
     escreveSaida(arquivo_saida);

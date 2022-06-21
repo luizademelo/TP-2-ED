@@ -13,7 +13,6 @@ class Palavra
 {
 public:
     char palavra[100];
-    int posicaoOrdem = -1;
     int tamanho = 0;
     void addFrequencia()
     {
@@ -96,10 +95,8 @@ void ignoraPontuacao(char p1[]);
 void ordenaTexto();
 void Ordena(int Esq, int Dir);
 void Particao(int Esq, int Dir, int *i, int *j);
-void Selecao();
+void Selecao(int Esq, int Dir); 
 void defineTamanhoPalavra();
-void definePosicaoNaOrdem(Palavra *p);
-void definePosicaoTexto();
 void leEntrada(char *nome_arquivo);
 void defineMediana(int med);
 void defineTamParticao(int tam);
