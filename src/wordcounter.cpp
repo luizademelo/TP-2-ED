@@ -49,9 +49,9 @@ void leTexto(FILE *file)
 {
     while (fscanf(file, "%s ", &texto[tamanho_texto].palavra) == 1)
     {
-        char tag_ordem[100] = "#ORDEM"; 
-        if(palavrasSaoIguais(tag_ordem, texto[tamanho_texto].palavra))
-            break; 
+        char tag_ordem[100] = "#ORDEM";
+        if (palavrasSaoIguais(tag_ordem, texto[tamanho_texto].palavra))
+            break;
         palavraParaMinuscula(texto[tamanho_texto].palavra);
         ignoraPontuacao(texto[tamanho_texto].palavra);
         addFrequenciaPalavra(&texto[tamanho_texto]);
@@ -82,6 +82,25 @@ void addFrequenciaPalavra(Palavra *p)
     }
     else
         p->addFrequencia();
+}
+
+void defineTamanhoPalavra()
+{
+    for (int i = 0; i < tamanho_texto; i++)
+    {
+        int tam = 0;
+        while (texto[i].palavra[tam] != '\0')
+            tam++;
+        texto[i].tamanho = tam; 
+    }
+}
+
+int getIndexChar(char c)
+{
+    for (int i = 0; i < 26; i++)
+        if (c == ordem[i])
+            return i;
+    return (int)c;
 }
 
 int getIndexPalavra(char palavra[])
@@ -121,9 +140,9 @@ void Selecao()
             if (texto[j].posicaoOrdem < texto[Min].posicaoOrdem)
                 Min = j;
         }
-        Palavra aux = texto[i]; 
-        texto[i] = texto[Min]; 
-        texto[Min] = aux; 
+        Palavra aux = texto[i];
+        texto[i] = texto[Min];
+        texto[Min] = aux;
     }
 }
 
@@ -147,11 +166,12 @@ void Particao(int Esq, int Dir, int *i, int *j)
         x = texto[mediana];
     else
         x = texto[(*i + *j) / 2];
+    printf("cheguei particao\n");
     do
     {
-        while (x.posicaoOrdem > texto[*i].posicaoOrdem)
+        while (x > texto[*i])
             (*i)++;
-        while (x.posicaoOrdem < texto[*j].posicaoOrdem)
+        while (x < texto[*j])
             (*j)--;
         if (*i <= *j)
         {

@@ -1,4 +1,5 @@
 criar getPosicaoOrdem(char c) (???)
+remover definePosicaoOrdem()
 corrigir ordenação de caracteres não alfabeticos 
 tratar caso de ordenação em que a primeira letra for igual 
 implementar memlog

@@ -33,8 +33,8 @@ int main(int argc, char **argv)
     }
     leEntrada(arquivo_entrada);
     definePosicaoTexto();
+    defineTamanhoPalavra(); 
     ordenaTexto();
-    //printf("cheguei\n"); 
     escreveSaida(arquivo_saida);
 
     return 0;
