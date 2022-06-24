@@ -44,8 +44,6 @@ public:
                 return false;
             }
         }
-        // printf("this: %s\n", this->palavra);
-        // printf("p2: %s\n", p2.palavra);
         if (strcmp(this->palavra, p2.palavra) == 0)
             return false;
         if (this->tamanho > p2.tamanho)
