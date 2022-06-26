@@ -149,6 +149,8 @@ void Selecao(int Esq, int Dir)
 void Ordena(int Esq, int Dir)
 {
     int i, j;
+    if(Dir - Esq <= max_tam_particao)
+        Selecao(Esq, Dir); 
     Particao(Esq, Dir, &i, &j);
     if (Esq < j)
         Ordena(Esq, j);
@@ -162,7 +164,7 @@ void Particao(int Esq, int Dir, int *i, int *j)
     *i = Esq;
     *j = Dir;
     /* obtem o pivo x */
-    if (mediana >= 0)
+    if (mediana >= *i && mediana <= *j)
         x = texto[mediana];
     else
         x = texto[(*i + *j) / 2];
